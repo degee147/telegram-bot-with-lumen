@@ -20,6 +20,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     protected $fillable = [
         'telegram_id',
+        'chat_id',
+        'chat_type',
         'first_name',
         'last_name',
         'email',
