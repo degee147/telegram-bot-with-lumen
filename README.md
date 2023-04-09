@@ -29,6 +29,7 @@ Add bot token to env file with key: TELEGRAM_BOT_TOKEN
 Add Bot to Channel via Telegram
 
 Application Features
+
 Users that have sent message to bot are automatically saved to the application via webhook
 
 **Available Endpoints**
