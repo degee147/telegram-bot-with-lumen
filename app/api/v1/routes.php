@@ -11,8 +11,10 @@ $router->get('users/{id}', 'UsersController@show');
 $router->get('/botinfo', 'TelegramController@getBotInfo');
 $router->get('/getupdates', 'TelegramController@getUpdates');
 $router->post('/sendmessage', 'TelegramController@sendMessage');
+$router->post('/sendmessagetoall', 'TelegramController@sendMessageToAllUsers');
 $router->post('/invitelink', 'TelegramController@createChatInviteLink');
 $router->post('/webhook', 'TelegramController@webhook');
 $router->post('/setwebhook', 'TelegramController@setWebhook');
-$router->post('/webhookinfo', 'TelegramController@getWebhookInfo');
+$router->get('/webhookinfo', 'TelegramController@getWebhookInfo');
+$router->get('/deletewebhook', 'TelegramController@deleteWebhook');
 

@@ -1,0 +1,192 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Example API",
+        "contact": {
+            "name": "Support Team",
+            "email": "kenwaribo@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/getupdates": {
+            "get": {
+                "summary": "Get bot updates",
+                "description": "Returns incoming updates using long polling. Returns an Array of 'Update' objects. More info at https://core.telegram.org/bots/api#getupdates",
+                "operationId": "40fd5e2eda083dbf8b275c73f164777e",
+                "responses": {
+                    "200": {
+                        "description": "Everything OK"
+                    },
+                    "409": {
+                        "description": "Returns false, if webhook is active"
+                    }
+                }
+            }
+        },
+        "/botinfo": {
+            "get": {
+                "summary": "Get bot info",
+                "description": "Returns information about the bot",
+                "operationId": "ebf8870b6a3256c3d34c3868480ee0e1",
+                "responses": {
+                    "200": {
+                        "description": "Everything OK"
+                    }
+                }
+            }
+        },
+        "/sendmessage": {
+            "post": {
+                "summary": "Send a message to user, group or channel",
+                "description": "Send params in form-data. Add Accept:application/json in header",
+                "operationId": "sendmessage",
+                "parameters": [
+                    {
+                        "name": "chat_id",
+                        "in": "query",
+                        "description": "accepts chat_id from user model. Channels use the @ prefix e.g @official_bot",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "description": "text message to send",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/invitelink": {
+            "post": {
+                "summary": "Used to generate invitation link to join channel or group. Bots can simply use default links for invitation, e.g https://t.me/{botusername}",
+                "description": "Send params in form-data. Add Accept:application/json in header",
+                "operationId": "invitelink",
+                "parameters": [
+                    {
+                        "name": "chat_id",
+                        "in": "query",
+                        "description": "accepts chat_id from user model. Channels use the @ prefix e.g @official_bot",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return newly generated link"
+                    }
+                }
+            }
+        },
+        "/sendmessagetoall": {
+            "post": {
+                "summary": "Send message to all subscribed users",
+                "description": "Recieves message text. Add Accept:application/json in header",
+                "operationId": "sendmessagetoall",
+                "parameters": [
+                    {
+                        "name": "text",
+                        "in": "query",
+                        "description": "text message to send",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/setwebhook": {
+            "post": {
+                "summary": "Enable webhook for bot",
+                "description": "Send params in form-data. Add Accept:application/json in header",
+                "operationId": "setwebhook",
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "description": "accepts url to receive webhook update from Telegram",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/webhookinfo": {
+            "get": {
+                "summary": "Get Webhook info",
+                "description": "Use this method to get current webhook status. Requires no parameters. On success, returns a WebhookInfo object. If the bot is using getUpdates, will return an object with the url field empty",
+                "operationId": "5198829cf9b4501daf7cd7b8eff41dbf",
+                "responses": {
+                    "200": {
+                        "description": "Everything OK"
+                    }
+                }
+            }
+        },
+        "/deletewebhook": {
+            "get": {
+                "summary": "remove webhook integration",
+                "description": "Use this method to remove webhook integration if you decide to switch back to getUpdates. Returns True on success.",
+                "operationId": "849415d86f46eb4ea5a9d40c62006cbf",
+                "responses": {
+                    "200": {
+                        "description": "Everything OK"
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "summary": "Get users",
+                "description": "Returns a paginated list of users saved from interactions between the users and the bot, inclusing channels and groups bot has admin access to",
+                "operationId": "a1e7fbc4158c747a3ab18c1f33d82342",
+                "responses": {
+                    "200": {
+                        "description": "Everything OK"
+                    }
+                }
+            }
+        },
+        "/users/{id}": {
+            "get": {
+                "summary": "Get Single users",
+                "description": "Returns a single user info",
+                "operationId": "9897b1dd232dd5e4d3bbf1868d7d9d56",
+                "responses": {
+                    "200": {
+                        "description": "Everything OK"
+                    },
+                    "400": {
+                        "description": "User not found"
+                    }
+                }
+            }
+        }
+    }
+}

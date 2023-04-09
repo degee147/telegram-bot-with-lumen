@@ -14,9 +14,15 @@ class UsersController extends Controller
 {
     use Ultainfinity;
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @OA\Get(
+     *     path="/users",
+     *     summary="Get users",
+     *     description="Returns a paginated list of users saved from interactions between the users and the bot, inclusing channels and groups bot has admin access to",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Everything OK"
+     *     )
+     * )
      */
     public function index()
     {
@@ -26,11 +32,20 @@ class UsersController extends Controller
 
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     /**
+     * @OA\Get(
+     *     path="/users/{id}",
+     *     summary="Get Single users",
+     *     description="Returns a single user info",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Everything OK"
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="User not found"
+     *     )
+     * )
      */
     public function show($id)
     {
