@@ -22,6 +22,7 @@ subscribe users to channel
 
 
 **Pre-setup**
+
 Create Telegram Bot via Telegram app using botfather: Link here ...
 Add bot token to env file with key: TELEGRAM_BOT_TOKEN
 
